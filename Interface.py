@@ -102,8 +102,9 @@ sns.heatmap(lr_conf_matrix, annot=True, cmap='Blues', fmt='d', cbar=False,
             xticklabels=['Non Réponse', 'Réponse'], yticklabels=['Non Réponse', 'Réponse'])
 plt.xlabel('Prédictions')
 plt.ylabel('Vraies Valeurs')
-plt.title('Matrice de Confusion - Logistic Regression')
+plt.title('Matrice de Confusion - Model Bayesine Hiérarchique')
 plt.show()
+st.pyplot()
 
 # Évaluation du modèle
 lr_auc = roc_auc_score(test_treatment_response, lr_model.predict_proba(test_data)[:, 1])
