@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, roc_auc_score
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+st.set_option('deprecation.showPyplotGlobalUse', False)
 # Chargement des données pour la normalisation
 data = pd.read_csv("simulated_cancer_data.csv")
 
