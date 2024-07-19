@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Chargement des données pour la normalisation
-data = pd.read_csv("C:/Users/tanoh/ProjetStatBayesienne/Interface/simulated_cancer_data.csv")
+data = pd.read_csv("simulated_cancer_data.csv")
 
 # Vérifier les colonnes du DataFrame
 # st.write(data.columns)
