@@ -109,7 +109,7 @@ plt.show()
 lr_auc = roc_auc_score(test_treatment_response, lr_model.predict_proba(test_data)[:, 1])
 
 st.subheader('Évaluation du modèle')
-st.write(f'Logistic Regression ROC AUC Score: {lr_auc:.2f}')
+st.write(f'Score ROC du model Bayesien: {lr_auc:.2f}')
 
 # Prédiction sur les données utilisateur
 user_prediction_prob = lr_model.predict_proba(input_df)[:, 1][0]
