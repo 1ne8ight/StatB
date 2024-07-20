@@ -112,10 +112,10 @@ lr_auc = roc_auc_score(test_treatment_response, lr_model.predict_proba(test_data
 st.subheader('Évaluation du modèle')
 st.write(f'Score ROC du model Bayesien: {lr_auc:.2f}')
 
-# Prédiction sur les données utilisateur
-user_prediction_prob = lr_model.predict_proba(input_df)[:, 1][0]
-user_prediction = 'Positive' if user_prediction_prob > 0.5 else 'Négatif'
+# Prédiction sur les données entrées
+u_prediction_prob = lr_model.predict_proba(input_df)[:, 1][0]
+u_prediction = 'Positive' if u_prediction_prob > 0.5 else 'Négatif'
 
 st.subheader('Prédiction de la réponse au traitement')
-st.write(f'Probabilité de réponse au traitement: {user_prediction_prob:.2f}')
-st.write('Réponse prédite:', user_prediction)
+st.write(f'Probabilité de réponse au traitement: {u_prediction_prob:.2f}')
+st.write('Réponse prédite:', u_prediction)
