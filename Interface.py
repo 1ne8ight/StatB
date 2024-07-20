@@ -113,6 +113,7 @@ st.subheader('Évaluation du modèle')
 st.write(f'Score ROC du model Bayesien: {lr_auc:.2f}')
 
 # Prédiction sur les données entrées
+#Les données utiliser sont des données fictves et n'es pas associer a un individu
 u_prediction_prob = lr_model.predict_proba(input_df)[:, 1][0]
 u_prediction = 'Positive' if u_prediction_prob > 0.5 else 'Négatif'
 
