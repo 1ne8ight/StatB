@@ -5,12 +5,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, roc_auc_score
 import seaborn as sns
 import matplotlib.pyplot as plt
+
 st.set_option('deprecation.showPyplotGlobalUse', False)
+
 # Chargement des données pour la normalisation
 data = pd.read_csv("simulated_cancer_data.csv")
-
-# Vérifier les colonnes du DataFrame
-# st.write(data.columns)
 
 # Définir les colonnes
 gene_columns = [f'gene{i+1}' for i in range(2)]
@@ -102,7 +101,7 @@ sns.heatmap(lr_conf_matrix, annot=True, cmap='Blues', fmt='d', cbar=False,
             xticklabels=['Non Réponse', 'Réponse'], yticklabels=['Non Réponse', 'Réponse'])
 plt.xlabel('Prédictions')
 plt.ylabel('Vraies Valeurs')
-plt.title('Matrice de Confusion - Model Bayesine Hiérarchique')
+plt.title('Matrice de Confusion - Logistic Regression')
 plt.show()
 st.pyplot()
 
@@ -110,10 +109,12 @@ st.pyplot()
 lr_auc = roc_auc_score(test_treatment_response, lr_model.predict_proba(test_data)[:, 1])
 
 st.subheader('Évaluation du modèle')
-st.write(f'Score ROC du model Bayesien: {lr_auc:.2f}')
+st.write(f'Score ROC du model: {lr_auc:.2f}')
+
+# Assurer que les colonnes d'entrée sont dans le même ordre que celles utilisées pour entraîner le modèle
+input_df = input_df[train_data.columns]
 
 # Prédiction sur les données entrées
-#Les données utiliser sont des données fictves et n'es pas associer a un individu
 u_prediction_prob = lr_model.predict_proba(input_df)[:, 1][0]
 u_prediction = 'Positive' if u_prediction_prob > 0.5 else 'Négatif'
 
